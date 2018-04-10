@@ -10,7 +10,8 @@
   onblur={{onBlur}}
   disabled={{select.disabled}}
   onkeydown={{action "handleKeydown"}}
-  onmousedown={{action "stopPropagation"}}>
+  onmousedown={{action "stopPropagation"}}
+  aria-controls={{listboxId}}>
 {{#if select.loading}}
   <span class="ember-power-select-typeahead-loading-indicator"></span>
 {{/if}}
