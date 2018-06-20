@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   tabindex: -1,
   triggerComponent: 'power-select-typeahead/trigger',
   searchEnabled: false,
-  loadingMessage: false,
+  loadingMessage: null,
 
   // CPs
   concatenatedClasses: Ember.computed('class', function() {

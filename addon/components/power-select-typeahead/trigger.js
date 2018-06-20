@@ -48,6 +48,10 @@ export default Ember.Component.extend({
       let isLetter = e.keyCode >= 48 && e.keyCode <= 90 || e.keyCode === 32; // Keys 0-9, a-z or SPACE
       let isSpecialKeyWhileClosed = !isLetter && !this.get('select.isOpen') && [13, 27, 38, 40].indexOf(e.keyCode) > -1;
       if (isLetter || isSpecialKeyWhileClosed) {
+        let select = this.get('select');
+        if (!select.isOpen && this.get('loadingMessage')) {
+          run.schedule('actions', null, select.actions.open);
+        }
         e.stopPropagation();
       }
     },
